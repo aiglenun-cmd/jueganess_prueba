@@ -78,3 +78,4 @@ app.add_error_handler(error_handler)
 
 print("Bot funcionando...")
 app.run_polling()
+
