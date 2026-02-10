@@ -60,11 +60,7 @@ async def welcome(update: Update, context: ContextTypes.DEFAULT_TYPE):
     lista = ", ".join(nombres)
     
     logger.info(
-        "Nuevo usuario en %s (%s): %s (%s)",
-        chat.title,
-        chat.id,
-        u.full_name,
-        u.id
+        "Mensaje de bienvenida para: %s", lista
     )
     
     await msg.reply_text(
@@ -97,3 +93,4 @@ app.add_error_handler(error_handler)
 
 print("Bot funcionando...")
 app.run_polling()
+
