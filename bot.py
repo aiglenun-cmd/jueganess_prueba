@@ -30,7 +30,7 @@ WELCOME_TEXT = (
     "• Respeto ante todo: no se toleran insultos ni ataques hacia personas o colectivos.\n"
     "• Nada de spam, contenido +18 ni temas ajenos a la asociación\n"
     "• No publiques información privada o confidencial\n"
-    "• Si hay un problema → contacta con moderación\n\n"
+    "• Si hay un problema → contacta con l@s moderador@s\n\n"
     "━━━━━━━━━━━━\n"
     "USO DE CANALES\n"
     "━━━━━━━━━━━━\n"
@@ -93,4 +93,5 @@ app.add_error_handler(error_handler)
 
 print("Bot funcionando...")
 app.run_polling()
+
 
