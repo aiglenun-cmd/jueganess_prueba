@@ -1,5 +1,9 @@
 import os
 import logging
+
+print("telegram package:", telegram.__file__)
+print("telegram version:", telegram.__version__)
+
 from telegram import Update
 from telegram.ext import (
     ApplicationBuilder,
@@ -83,6 +87,7 @@ app.add_error_handler(error_handler)
 
 print("Bot funcionando...")
 app.run_polling()
+
 
 
 
