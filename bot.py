@@ -24,11 +24,10 @@ logger = logging.getLogger(__name__)
 
 WELCOME_TEXT = (
     "🎲 Este grupo es para organizar partidas, hablar de juegos de mesa y pasarlo bien.\n\n"
-    "━━━PRUEBA DESDE RAILWAY━━━━\n"
     "━━━━━━━━━━━━\n"
     "NORMAS BÁSICAS\n"
     "━━━━━━━━━━━━\n"
-    "• Respeto ante todo (sin insultos ni ataques personales)\n"
+    "• Respeto ante todo: no se toleran insultos ni ataques hacia personas o colectivos.\n"
     "• Nada de spam, contenido +18 ni temas ajenos a la asociación\n"
     "• No publiques información privada o confidencial\n"
     "• Si hay un problema → contacta con moderación\n\n"
@@ -36,7 +35,7 @@ WELCOME_TEXT = (
     "USO DE CANALES\n"
     "━━━━━━━━━━━━\n"
     "📢 Eventos → solo publica la organización\n"
-    "🗓 Próximas partidas → solo partidas usando la plantilla\n"
+    "🗓 Próximas partidas → publicación reservada a socios\n"
     "💰 Compra/Venta → solo anuncios\n"
     "📷 Fotos → solo fotos\n\n"
     "En estos canales:\n"
@@ -59,7 +58,15 @@ async def welcome(update: Update, context: ContextTypes.DEFAULT_TYPE):
     # Si entran varios a la vez, manda 1 solo mensaje
     nombres = [u.first_name for u in update.message.new_chat_members]
     lista = ", ".join(nombres)
-
+    
+    logger.info(
+        "Nuevo usuario en %s (%s): %s (%s)",
+        chat.title,
+        chat.id,
+        u.full_name,
+        u.id
+    )
+    
     await msg.reply_text(
         f"👋 ¡Bienvenid@s {lista}!\n\n" + WELCOME_TEXT
     )
@@ -67,8 +74,11 @@ async def welcome(update: Update, context: ContextTypes.DEFAULT_TYPE):
 # comando /prueba -> simula bienvenida
 async def prueba(update: Update, context: ContextTypes.DEFAULT_TYPE):
     nombre = update.effective_user.first_name
+    logger.info(
+        "prueba de %s",nombre
+    )
     await update.effective_message.reply_text(
-        f"👋 ¡Bienvenido/a {nombre}!\n\n" + WELCOME_TEXT
+        f"👋 ¡Hola {nombre}!\n\n"  # + WELCOME_TEXT
     )
 
 async def error_handler(update: object, context: ContextTypes.DEFAULT_TYPE) -> None:
@@ -87,10 +97,3 @@ app.add_error_handler(error_handler)
 
 print("Bot funcionando...")
 app.run_polling()
-
-
-
-
-
-
-
