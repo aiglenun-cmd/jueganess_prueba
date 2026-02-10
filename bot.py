@@ -77,8 +77,6 @@ async def error_handler(update: object, context: ContextTypes.DEFAULT_TYPE) -> N
 if not TOKEN:
     raise RuntimeError("TELEGRAM_TOKEN no está llegando al proceso (Railway Variables).")    
 
-print("TOKEN:", TOKEN)   # 👈 añadir esta línea
-
 app = ApplicationBuilder().token(TOKEN).build()
 
 app.add_handler(CommandHandler("start", start))
@@ -89,6 +87,7 @@ app.add_error_handler(error_handler)
 
 print("Bot funcionando...")
 app.run_polling()
+
 
 
 
