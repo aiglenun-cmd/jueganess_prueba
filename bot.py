@@ -24,6 +24,7 @@ logger = logging.getLogger(__name__)
 
 WELCOME_TEXT = (
     "🎲 Este grupo es para organizar partidas, hablar de juegos de mesa y pasarlo bien.\n\n"
+    "━━━PRUEBA DESDE RAILWAY━━━━\n"
     "━━━━━━━━━━━━\n"
     "NORMAS BÁSICAS\n"
     "━━━━━━━━━━━━\n"
@@ -88,6 +89,7 @@ app.add_error_handler(error_handler)
 
 print("Bot funcionando...")
 app.run_polling()
+
 
 
 
