@@ -1,5 +1,6 @@
 import os
 import logging
+import telegram
 
 print("telegram package:", telegram.__file__)
 print("telegram version:", telegram.__version__)
@@ -87,6 +88,7 @@ app.add_error_handler(error_handler)
 
 print("Bot funcionando...")
 app.run_polling()
+
 
 
 
